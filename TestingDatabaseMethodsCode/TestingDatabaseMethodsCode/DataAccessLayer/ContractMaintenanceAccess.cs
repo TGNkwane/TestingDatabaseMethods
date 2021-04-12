@@ -10,7 +10,6 @@ namespace TestingDatabaseMethodsCode.DataAccessLayer
     class ContractMaintenanceAccess
     {
         string connect = "Data Source=.; Initial Catalog= CallCenterDatabase; Integrated Security= SSPI";
-        SqlCommand command;
         //SqlDataReader reader;
 
         #region Insert Functions
@@ -25,7 +24,7 @@ namespace TestingDatabaseMethodsCode.DataAccessLayer
 
             conn.Open();
 
-            command = new SqlCommand(query, conn);
+            SqlCommand command = new SqlCommand(query, conn);
 
             try
             {
@@ -54,7 +53,7 @@ namespace TestingDatabaseMethodsCode.DataAccessLayer
 
             conn.Open();
 
-            command = new SqlCommand(query, conn);
+            SqlCommand command = new SqlCommand(query, conn);
 
             try
             {
@@ -83,7 +82,7 @@ namespace TestingDatabaseMethodsCode.DataAccessLayer
 
             conn.Open();
 
-            command = new SqlCommand(query, conn);
+            SqlCommand command = new SqlCommand(query, conn);
 
             try
             {
@@ -111,7 +110,7 @@ namespace TestingDatabaseMethodsCode.DataAccessLayer
 
             conn.Open();
 
-            command = new SqlCommand(query, conn);
+            SqlCommand command = new SqlCommand(query, conn);
 
             try
             {
@@ -138,7 +137,7 @@ namespace TestingDatabaseMethodsCode.DataAccessLayer
 
             conn.Open();
 
-            command = new SqlCommand(query, conn);
+            SqlCommand command = new SqlCommand(query, conn);
 
             try
             {
@@ -167,7 +166,7 @@ namespace TestingDatabaseMethodsCode.DataAccessLayer
 
             conn.Open();
 
-            command = new SqlCommand(query, conn);
+            SqlCommand command = new SqlCommand(query, conn);
 
             try
             {
@@ -195,7 +194,7 @@ namespace TestingDatabaseMethodsCode.DataAccessLayer
 
             conn.Open();
 
-            command = new SqlCommand(query, conn);
+            SqlCommand command = new SqlCommand(query, conn);
 
             try
             {
@@ -222,7 +221,7 @@ namespace TestingDatabaseMethodsCode.DataAccessLayer
 
             conn.Open();
 
-            command = new SqlCommand(query, conn);
+            SqlCommand command = new SqlCommand(query, conn);
 
             try
             {
@@ -252,7 +251,7 @@ namespace TestingDatabaseMethodsCode.DataAccessLayer
 
             conn.Open();
 
-            command = new SqlCommand(query, conn);
+            SqlCommand command = new SqlCommand(query, conn);
 
             try
             {
@@ -279,7 +278,7 @@ namespace TestingDatabaseMethodsCode.DataAccessLayer
 
             conn.Open();
 
-            command = new SqlCommand(query, conn);
+            SqlCommand command = new SqlCommand(query, conn);
 
             try
             {
@@ -313,7 +312,7 @@ namespace TestingDatabaseMethodsCode.DataAccessLayer
 
             conn.Open();
 
-            command = new SqlCommand(query, conn);
+            SqlCommand command = new SqlCommand(query, conn);
 
             try
             {
@@ -342,7 +341,7 @@ namespace TestingDatabaseMethodsCode.DataAccessLayer
 
             conn.Open();
 
-            command = new SqlCommand(query, conn);
+            SqlCommand command = new SqlCommand(query, conn);
 
             try
             {
@@ -369,7 +368,7 @@ namespace TestingDatabaseMethodsCode.DataAccessLayer
 
             conn.Open();
 
-            command = new SqlCommand(query, conn);
+            SqlCommand command = new SqlCommand(query, conn);
 
             try
             {
