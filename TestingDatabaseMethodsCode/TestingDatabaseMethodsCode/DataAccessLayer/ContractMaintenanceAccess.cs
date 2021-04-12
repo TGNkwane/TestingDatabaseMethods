@@ -10,9 +10,8 @@ namespace TestingDatabaseMethodsCode.DataAccessLayer
     class ContractMaintenanceAccess
     {
         string connect = "Data Source=.; Initial Catalog= CallCenterDatabase; Integrated Security= SSPI";
-        SqlConnection conn;
         SqlCommand command;
-        SqlDataReader reader;
+        //SqlDataReader reader;
 
         #region Insert Functions
         // Insert functions: These functions are used to add services, service levels (including security levels),
@@ -22,7 +21,7 @@ namespace TestingDatabaseMethodsCode.DataAccessLayer
         public void InsertService(string name, string equipmentType, string workExpenses, int state)
         {
             string query = $"INSERT INTO Service VALUES({name}, {equipmentType}, {workExpenses},{state})";
-            conn = new SqlConnection(connect);
+            SqlConnection conn = new SqlConnection(connect);
 
             conn.Open();
 
@@ -51,7 +50,7 @@ namespace TestingDatabaseMethodsCode.DataAccessLayer
         {
             string query = $"INSERT INTO ServiceLevel VALUES({levelName}, {optOutDetails}, {penaltiesForLateWork},{penaltiesForNonPerformance},{state},{securityLevelID})";
 
-            conn = new SqlConnection(connect);
+            SqlConnection conn = new SqlConnection(connect);
 
             conn.Open();
 
@@ -80,7 +79,7 @@ namespace TestingDatabaseMethodsCode.DataAccessLayer
         {
             string query = $"INSERT INTO ContractType VALUES({packageName}, {serviceID}, {serviceLevelID})";
 
-            conn = new SqlConnection(connect);
+            SqlConnection conn = new SqlConnection(connect);
 
             conn.Open();
 
@@ -108,7 +107,7 @@ namespace TestingDatabaseMethodsCode.DataAccessLayer
         {
             string query = $"INSERT INTO Contract VALUES({contractTypeID}, {clientID})";
 
-            conn = new SqlConnection(connect);
+            SqlConnection conn = new SqlConnection(connect);
 
             conn.Open();
 
@@ -135,7 +134,7 @@ namespace TestingDatabaseMethodsCode.DataAccessLayer
         {
             string query = $"INSERT INTO SecurityLevel VALUES({levelDescription}, {availability}, {emailSupport},{phoneSupport})";
 
-            conn = new SqlConnection(connect);
+            SqlConnection conn = new SqlConnection(connect);
 
             conn.Open();
 
@@ -164,7 +163,7 @@ namespace TestingDatabaseMethodsCode.DataAccessLayer
         public void UpdateService(int serviceID, string name, string equipmentType, string workExpenses)
         {
             string query = $"UPDATE Service SET Name = {name}, EquipmentType = {equipmentType}, WorkExpenses = {workExpenses} WHERE ServiceID = {serviceID}";
-            conn = new SqlConnection(connect);
+            SqlConnection conn = new SqlConnection(connect);
 
             conn.Open();
 
@@ -192,7 +191,7 @@ namespace TestingDatabaseMethodsCode.DataAccessLayer
         {
             string query = $"UPDATE ServiceLevel SET Name = {levelName}, OptOutDetails = {optOutDetails}, PenaltiesForLateWork = {penaltiesForLateWork}, PenaltiesForNOnPerformance= {penaltiesForNonPerformance} WHERE ServiceLevelID = {serviceLevelID}";
 
-            conn = new SqlConnection(connect);
+            SqlConnection conn = new SqlConnection(connect);
 
             conn.Open();
 
@@ -219,7 +218,7 @@ namespace TestingDatabaseMethodsCode.DataAccessLayer
         {
             string query = $"UPDATE ContractType SET PackageName = {packageName}, ServiceID = {serviceID}, ServiceLevelID= {serviceLevelID} WHERE ContractTypeID = {contractTypeID}";
 
-            conn = new SqlConnection(connect);
+            SqlConnection conn = new SqlConnection(connect);
 
             conn.Open();
 
@@ -249,7 +248,7 @@ namespace TestingDatabaseMethodsCode.DataAccessLayer
         {
             string query = $"UPDATE Contract SET ContractTypeID = {contractTypeID}, ClientID = {clientID} WHERE ContractID = {contractID}";
 
-            conn = new SqlConnection(connect);
+            SqlConnection conn = new SqlConnection(connect);
 
             conn.Open();
 
@@ -276,7 +275,7 @@ namespace TestingDatabaseMethodsCode.DataAccessLayer
         {
             string query = $"UPDATE SecurityLevel SET LevelDescription= {levelDescription}, EmailSupport = {emailSupport}, PhoneSupport = {phoneSupport} WHERE SecurityLevelID = {securityLevelID}";
 
-            conn = new SqlConnection(connect);
+            SqlConnection conn = new SqlConnection(connect);
 
             conn.Open();
 
@@ -310,7 +309,7 @@ namespace TestingDatabaseMethodsCode.DataAccessLayer
         public void UpdateService(int serviceID, int state)
         {
             string query = $"UPDATE Service SET State = {state} WHERE ServiceID = {serviceID}";
-            conn = new SqlConnection(connect);
+            SqlConnection conn = new SqlConnection(connect);
 
             conn.Open();
 
@@ -339,7 +338,7 @@ namespace TestingDatabaseMethodsCode.DataAccessLayer
         {
             string query = $"UPDATE ServiceLevel SET State = {state} WHERE ServiceLevelID = {serviceLevelID}";
 
-            conn = new SqlConnection(connect);
+            SqlConnection conn = new SqlConnection(connect);
 
             conn.Open();
 
@@ -366,7 +365,7 @@ namespace TestingDatabaseMethodsCode.DataAccessLayer
         {
             string query = $"UPDATE SecurityLevel SET Availability = {availability} WHERE SecurityLevelID = {securityLevelID}";
 
-            conn = new SqlConnection(connect);
+            SqlConnection conn = new SqlConnection(connect);
 
             conn.Open();
 
