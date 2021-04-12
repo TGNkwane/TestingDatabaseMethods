@@ -32,12 +32,14 @@ namespace TestingDatabaseMethodsCode.DataAccessLayer
             {
                 command.ExecuteNonQuery();
                 // MessageBox.Show() overload number 7
-                MessageBox.Show("New service inserted succesfully", "Service Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //MessageBox.Show("New service inserted succesfully", "Service Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Console.WriteLine("New service inserted succesfully");
             }
             catch (Exception ex)
             {
                 // MessageBox.Show() overload number 7
-                MessageBox.Show("Failed to insert new Service: " + ex.Message, "Insert Failed", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                //MessageBox.Show("Failed to insert new Service: " + ex.Message, "Insert Failed", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                Console.WriteLine("Failed to insert new Service");
             }
             finally
             {
@@ -59,12 +61,14 @@ namespace TestingDatabaseMethodsCode.DataAccessLayer
             {
                 command.ExecuteNonQuery();
                 // MessageBox.Show() overload number 7
-                MessageBox.Show("New service level inserted succesfully", "Service Level Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //MessageBox.Show("New service level inserted succesfully", "Service Level Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Console.WriteLine("New service level inserted succesfully");
             }
             catch (Exception ex)
             {
                 // MessageBox.Show() overload number 7
-                MessageBox.Show("Failed to insert new Service Level: " + ex.Message, "Insert Failed", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                //MessageBox.Show("Failed to insert new Service Level: " + ex.Message, "Insert Failed", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                Console.WriteLine("Failed to insert new Service Level");
             }
             finally
             {
@@ -85,11 +89,13 @@ namespace TestingDatabaseMethodsCode.DataAccessLayer
             try
             {
                 command.ExecuteNonQuery();
-                MessageBox.Show("New package inserted succesfully", "Package Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //MessageBox.Show("New package inserted succesfully", "Package Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Console.WriteLine("New package inserted succesfully");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Failed to insert new Package: " + ex.Message, "Insert Failed", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                //MessageBox.Show("Failed to insert new Package: " + ex.Message, "Insert Failed", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                Console.WriteLine("Failed to insert new Package");
             }
             finally
             {
@@ -111,11 +117,13 @@ namespace TestingDatabaseMethodsCode.DataAccessLayer
             try
             {
                 command.ExecuteNonQuery();
-                MessageBox.Show("New contract inserted succesfully", "Contract Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //MessageBox.Show("New contract inserted succesfully", "Contract Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Console.WriteLine("New contract inserted succesfully");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Failed to insert new Contract: " + ex.Message, "Insert Failed", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                //MessageBox.Show("Failed to insert new Contract: " + ex.Message, "Insert Failed", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                Console.WriteLine("Failed to insert new Contract");
             }
             finally
             {
@@ -136,11 +144,13 @@ namespace TestingDatabaseMethodsCode.DataAccessLayer
             try
             {
                 command.ExecuteNonQuery();
-                MessageBox.Show("New security level inserted succesfully", "Security Level Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //MessageBox.Show("New security level inserted succesfully", "Security Level Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Console.WriteLine("New security level inserted succesfully");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Failed to insert new security level: " + ex.Message, "Insert Failed", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                //MessageBox.Show("Failed to insert new security level: " + ex.Message, "Insert Failed", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                Console.WriteLine("Failed to insert new security level");
             }
             finally
             {
@@ -163,11 +173,13 @@ namespace TestingDatabaseMethodsCode.DataAccessLayer
             try
             {
                 command.ExecuteNonQuery();
-                MessageBox.Show("Service updated succesfully", "Service update Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //MessageBox.Show("Service updated succesfully", "Service update Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Console.WriteLine("Service updated succesfully");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Failed to update Service: " + ex.Message, "Update Failed", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                //MessageBox.Show("Failed to update Service: " + ex.Message, "Update Failed", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                Console.WriteLine("Failed to update Service");
             }
             finally
             {
@@ -189,11 +201,13 @@ namespace TestingDatabaseMethodsCode.DataAccessLayer
             try
             {
                 command.ExecuteNonQuery();
-                MessageBox.Show("Service Level updated succesfully", "Service Level update Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //MessageBox.Show("Service Level updated succesfully", "Service Level update Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Console.WriteLine("Service Level updated succesfully");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Failed to update Service Level: " + ex.Message, "Update Failed", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                //MessageBox.Show("Failed to update Service Level: " + ex.Message, "Update Failed", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                Console.WriteLine("Failed to update Service Level");
             }
             finally
             {
@@ -214,11 +228,13 @@ namespace TestingDatabaseMethodsCode.DataAccessLayer
             try
             {
                 command.ExecuteNonQuery();
-                MessageBox.Show("Package updated succesfully", "Package update Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //MessageBox.Show("Package updated succesfully", "Package update Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Console.WriteLine("Package updated succesfully");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Failed to update Package: " + ex.Message, "Update Failed", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                //MessageBox.Show("Failed to update Package: " + ex.Message, "Update Failed", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                Console.WriteLine("Failed to update Package");
             }
             finally
             {
@@ -242,11 +258,13 @@ namespace TestingDatabaseMethodsCode.DataAccessLayer
             try
             {
                 command.ExecuteNonQuery();
-                MessageBox.Show("Contract updated succesfully", "Contract update Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //MessageBox.Show("Contract updated succesfully", "Contract update Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Console.WriteLine("Contract updated succesfully");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Failed to update Contract: " + ex.Message, "Update Failed", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                //MessageBox.Show("Failed to update Contract: " + ex.Message, "Update Failed", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                Console.WriteLine("Failed to update Contract");
             }
             finally
             {
@@ -267,11 +285,13 @@ namespace TestingDatabaseMethodsCode.DataAccessLayer
             try
             {
                 command.ExecuteNonQuery();
-                MessageBox.Show("Security Level updated succesfully", "Security Level update Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //MessageBox.Show("Security Level updated succesfully", "Security Level update Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Console.WriteLine("Security Level updated succesfully");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Failed to update Security Level: " + ex.Message, "Update Failed", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                //MessageBox.Show("Failed to update Security Level: " + ex.Message, "Update Failed", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                Console.WriteLine("Failed to update Security Level");
             }
             finally
             {
@@ -300,12 +320,14 @@ namespace TestingDatabaseMethodsCode.DataAccessLayer
             {
                 command.ExecuteNonQuery();
                 // MessageBox.Show() overload number 7
-                MessageBox.Show("State updated succesfully", "Service State Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //MessageBox.Show("State updated succesfully", "Service State Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Console.WriteLine("State updated succesfully");
             }
             catch (Exception ex)
             {
                 // MessageBox.Show() overload number 7
-                MessageBox.Show("Failed to change status: " + ex.Message, "Update Failed", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                //MessageBox.Show("Failed to change status: " + ex.Message, "Update Failed", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                Console.WriteLine("Failed to change status");
             }
             finally
             {
@@ -326,11 +348,13 @@ namespace TestingDatabaseMethodsCode.DataAccessLayer
             try
             {
                 command.ExecuteNonQuery();
-                MessageBox.Show("State updated succesfully", "Service Level State Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //MessageBox.Show("State updated succesfully", "Service Level State Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Console.WriteLine("State updated succesfully");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Failed to change status: " + ex.Message, "Update Failed", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                //MessageBox.Show("Failed to change status: " + ex.Message, "Update Failed", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                Console.WriteLine("Failed to change status");
             }
             finally
             {
@@ -351,11 +375,13 @@ namespace TestingDatabaseMethodsCode.DataAccessLayer
             try
             {
                 command.ExecuteNonQuery();
-                MessageBox.Show("State updated succesfully", "Security Level State Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //MessageBox.Show("State updated succesfully", "Security Level State Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Console.WriteLine("State updated succesfully");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Failed to change status: " + ex.Message, "Update Failed", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                //MessageBox.Show("Failed to change status: " + ex.Message, "Update Failed", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                Console.WriteLine("Failed to change status");
             }
             finally
             {
