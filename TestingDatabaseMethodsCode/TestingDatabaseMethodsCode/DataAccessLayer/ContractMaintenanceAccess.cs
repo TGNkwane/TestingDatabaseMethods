@@ -20,7 +20,7 @@ namespace TestingDatabaseMethodsCode
         // Only the manager can use this method (or anyone with clearance to create services)
         public void InsertService(string name, string equipmentType, string workExpenses, int state)
         {
-            string query = $"INSERT INTO Service VALUES('{name}', '{equipmentType}', '{workExpenses}', {state})";
+            string query = $"INSERT INTO [Service] VALUES('{name}', '{equipmentType}', '{workExpenses}', {state})";
 
             SqlConnection conn = new SqlConnection(connect);
             SqlCommand command = new SqlCommand(query, conn);
