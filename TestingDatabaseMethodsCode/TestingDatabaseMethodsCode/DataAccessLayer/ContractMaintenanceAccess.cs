@@ -20,15 +20,14 @@ namespace TestingDatabaseMethodsCode
         // Only the manager can use this method (or anyone with clearance to create services)
         public void InsertService(string name, string equipmentType, string workExpenses, int state)
         {
-            string query = $"INSERT INTO Service VALUES({name}, {equipmentType}, {workExpenses},{state})";
+            string query = $"INSERT INTO Service VALUES('{name}', '{equipmentType}', '{workExpenses}', {state})";
+
             SqlConnection conn = new SqlConnection(connect);
-
-            conn.Open();
-
             SqlCommand command = new SqlCommand(query, conn);
 
             try
             {
+                conn.Open();
                 command.ExecuteNonQuery();
                 // MessageBox.Show() overload number 7
                 //MessageBox.Show("New service inserted succesfully", "Service Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -48,16 +47,14 @@ namespace TestingDatabaseMethodsCode
         // Only the manager can use this method (or anyone with clearance to create service levels)
         public void InsertServiceLevel(string levelName, string optOutDetails, double penaltiesForLateWork, double penaltiesForNonPerformance, int state, int securityLevelID)
         {
-            string query = $"INSERT INTO ServiceLevel VALUES({levelName}, {optOutDetails}, {penaltiesForLateWork},{penaltiesForNonPerformance},{state},{securityLevelID})";
+            string query = $"INSERT INTO ServiceLevel VALUES('{levelName}', '{optOutDetails}', {penaltiesForLateWork},{penaltiesForNonPerformance},{state},{securityLevelID})";
 
             SqlConnection conn = new SqlConnection(connect);
-
-            conn.Open();
-
             SqlCommand command = new SqlCommand(query, conn);
 
             try
             {
+                conn.Open();
                 command.ExecuteNonQuery();
                 // MessageBox.Show() overload number 7
                 //MessageBox.Show("New service level inserted succesfully", "Service Level Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -77,16 +74,15 @@ namespace TestingDatabaseMethodsCode
         // Only the manager can use this method (or anyone with clearance to create packages)
         public void InsertPackage(string packageName, int serviceID, int serviceLevelID)
         {
-            string query = $"INSERT INTO ContractType VALUES({packageName}, {serviceID}, {serviceLevelID})";
+            string query = $"INSERT INTO ContractType VALUES('{packageName}', {serviceID}, {serviceLevelID})";
 
             SqlConnection conn = new SqlConnection(connect);
-
-            conn.Open();
-
             SqlCommand command = new SqlCommand(query, conn);
+
 
             try
             {
+                conn.Open();
                 command.ExecuteNonQuery();
                 //MessageBox.Show("New package inserted succesfully", "Package Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Console.WriteLine("New package inserted succesfully");
@@ -108,13 +104,12 @@ namespace TestingDatabaseMethodsCode
             string query = $"INSERT INTO Contract VALUES({contractTypeID}, {clientID})";
 
             SqlConnection conn = new SqlConnection(connect);
-
-            conn.Open();
-
             SqlCommand command = new SqlCommand(query, conn);
+            
 
             try
             {
+                conn.Open();
                 command.ExecuteNonQuery();
                 //MessageBox.Show("New contract inserted succesfully", "Contract Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Console.WriteLine("New contract inserted succesfully");
@@ -137,22 +132,22 @@ namespace TestingDatabaseMethodsCode
             SqlConnection conn = new SqlConnection(connect);
             SqlCommand command = new SqlCommand(query, conn);
 
-            //try
-            //{
+            try
+            {
                 conn.Open();
                 command.ExecuteNonQuery();
                 //MessageBox.Show("New security level inserted succesfully", "Security Level Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Console.WriteLine("New security level inserted succesfully");
-            //}
-            //catch (Exception ex)
-            //{
-            //    //MessageBox.Show("Failed to insert new security level: " + ex.Message, "Insert Failed", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
-            //    Console.WriteLine("Failed to insert new security level: " + ex.Message);
-            //}
-            //finally
-            //{
-            //    conn.Close();
-            //}
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("Failed to insert new security level: " + ex.Message, "Insert Failed", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                Console.WriteLine("Failed to insert new security level: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
         #endregion
 
