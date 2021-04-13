@@ -17,6 +17,7 @@ namespace TestingDatabaseMethodsCode
             access.InsertSecuriyLevel("Premium", 1, "MON-FRI-5AM-12AM", "MON-FRI-5AM-12AM");
             // 3 Security levels: Ultra
             access.InsertSecuriyLevel("Ultra", 1, "MON-SUN-24HRS", "MON-SUN-24HRS");
+
             Console.ReadLine();
         }
     }

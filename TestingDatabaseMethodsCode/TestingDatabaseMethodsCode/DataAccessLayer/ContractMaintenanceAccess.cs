@@ -155,15 +155,14 @@ namespace TestingDatabaseMethodsCode
         // Only the manager can use this method (or anyone with clearance to update services data)
         public void UpdateService(int serviceID, string name, string equipmentType, string workExpenses)
         {
-            string query = $"UPDATE Service SET Name = {name}, EquipmentType = {equipmentType}, WorkExpenses = {workExpenses} WHERE ServiceID = {serviceID}";
+            string query = $"UPDATE Service SET Name = '{name}', EquipmentType = '{equipmentType}', WorkExpenses = '{workExpenses}' WHERE ServiceID = {serviceID}";
+
             SqlConnection conn = new SqlConnection(connect);
-
-            conn.Open();
-
             SqlCommand command = new SqlCommand(query, conn);
 
             try
             {
+                conn.Open();
                 command.ExecuteNonQuery();
                 //MessageBox.Show("Service updated succesfully", "Service update Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Console.WriteLine("Service updated succesfully");
@@ -182,16 +181,14 @@ namespace TestingDatabaseMethodsCode
         // Only the manager can use this method (or anyone with clearance to update service levels data)
         public void UpdateServiceLevel(int serviceLevelID, string levelName, string optOutDetails, double penaltiesForLateWork, double penaltiesForNonPerformance)
         {
-            string query = $"UPDATE ServiceLevel SET Name = {levelName}, OptOutDetails = {optOutDetails}, PenaltiesForLateWork = {penaltiesForLateWork}, PenaltiesForNOnPerformance= {penaltiesForNonPerformance} WHERE ServiceLevelID = {serviceLevelID}";
+            string query = $"UPDATE ServiceLevel SET Name = '{levelName}', OptOutDetails = '{optOutDetails}', PenaltiesForLateWork = {penaltiesForLateWork}, PenaltiesForNOnPerformance= {penaltiesForNonPerformance} WHERE ServiceLevelID = {serviceLevelID}";
 
             SqlConnection conn = new SqlConnection(connect);
-
-            conn.Open();
-
             SqlCommand command = new SqlCommand(query, conn);
 
             try
             {
+                conn.Open();
                 command.ExecuteNonQuery();
                 //MessageBox.Show("Service Level updated succesfully", "Service Level update Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Console.WriteLine("Service Level updated succesfully");
@@ -209,16 +206,14 @@ namespace TestingDatabaseMethodsCode
         // Only the manager can use this method (or anyone with clearance to update packages data)
         public void UpdatePackage(int contractTypeID, string packageName, int serviceID, int serviceLevelID)
         {
-            string query = $"UPDATE ContractType SET PackageName = {packageName}, ServiceID = {serviceID}, ServiceLevelID= {serviceLevelID} WHERE ContractTypeID = {contractTypeID}";
+            string query = $"UPDATE ContractType SET PackageName = '{packageName}', ServiceID = {serviceID}, ServiceLevelID= {serviceLevelID} WHERE ContractTypeID = {contractTypeID}";
 
             SqlConnection conn = new SqlConnection(connect);
-
-            conn.Open();
-
             SqlCommand command = new SqlCommand(query, conn);
 
             try
             {
+                conn.Open();
                 command.ExecuteNonQuery();
                 //MessageBox.Show("Package updated succesfully", "Package update Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Console.WriteLine("Package updated succesfully");
@@ -242,13 +237,11 @@ namespace TestingDatabaseMethodsCode
             string query = $"UPDATE Contract SET ContractTypeID = {contractTypeID}, ClientID = {clientID} WHERE ContractID = {contractID}";
 
             SqlConnection conn = new SqlConnection(connect);
-
-            conn.Open();
-
             SqlCommand command = new SqlCommand(query, conn);
 
             try
             {
+                conn.Open();
                 command.ExecuteNonQuery();
                 //MessageBox.Show("Contract updated succesfully", "Contract update Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Console.WriteLine("Contract updated succesfully");
@@ -269,13 +262,11 @@ namespace TestingDatabaseMethodsCode
             string query = $"UPDATE SecurityLevel SET LevelDescription= {levelDescription}, EmailSupport = {emailSupport}, PhoneSupport = {phoneSupport} WHERE SecurityLevelID = {securityLevelID}";
 
             SqlConnection conn = new SqlConnection(connect);
-
-            conn.Open();
-
             SqlCommand command = new SqlCommand(query, conn);
 
             try
             {
+                conn.Open();
                 command.ExecuteNonQuery();
                 //MessageBox.Show("Security Level updated succesfully", "Security Level update Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Console.WriteLine("Security Level updated succesfully");
@@ -302,14 +293,13 @@ namespace TestingDatabaseMethodsCode
         public void UpdateService(int serviceID, int state)
         {
             string query = $"UPDATE Service SET State = {state} WHERE ServiceID = {serviceID}";
+
             SqlConnection conn = new SqlConnection(connect);
-
-            conn.Open();
-
             SqlCommand command = new SqlCommand(query, conn);
 
             try
             {
+                conn.Open();
                 command.ExecuteNonQuery();
                 // MessageBox.Show() overload number 7
                 //MessageBox.Show("State updated succesfully", "Service State Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -332,13 +322,11 @@ namespace TestingDatabaseMethodsCode
             string query = $"UPDATE ServiceLevel SET State = {state} WHERE ServiceLevelID = {serviceLevelID}";
 
             SqlConnection conn = new SqlConnection(connect);
-
-            conn.Open();
-
             SqlCommand command = new SqlCommand(query, conn);
 
             try
             {
+                conn.Open();
                 command.ExecuteNonQuery();
                 //MessageBox.Show("State updated succesfully", "Service Level State Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Console.WriteLine("State updated succesfully");
@@ -359,13 +347,11 @@ namespace TestingDatabaseMethodsCode
             string query = $"UPDATE SecurityLevel SET Availability = {availability} WHERE SecurityLevelID = {securityLevelID}";
 
             SqlConnection conn = new SqlConnection(connect);
-
-            conn.Open();
-
             SqlCommand command = new SqlCommand(query, conn);
 
             try
             {
+                conn.Open();
                 command.ExecuteNonQuery();
                 //MessageBox.Show("State updated succesfully", "Security Level State Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Console.WriteLine("State updated succesfully");
