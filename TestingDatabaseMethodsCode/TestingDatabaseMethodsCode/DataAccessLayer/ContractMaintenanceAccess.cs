@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Data;
 
-namespace TestingDatabaseMethodsCode.DataAccessLayer
+namespace TestingDatabaseMethodsCode
 {
     class ContractMaintenanceAccess
     {
-        string connect = "Data Source=.; Initial Catalog= CallCenterDatabase; Integrated Security= SSPI";
+        string connect = @"Data Source = (local); Initial Catalog = CallCenterDatabase; Integrated Security = SSPI";
         //SqlDataReader reader;
 
         #region Insert Functions
@@ -131,29 +132,27 @@ namespace TestingDatabaseMethodsCode.DataAccessLayer
         // The manager can use this method (or anyone with clearance to create security levels)
         public void InsertSecuriyLevel(string levelDescription, int availability, string emailSupport, string phoneSupport)
         {
-            string query = $"INSERT INTO SecurityLevel VALUES({levelDescription}, {availability}, {emailSupport},{phoneSupport})";
+            string query = $"INSERT INTO dbo.SecurityLevel VALUES('{levelDescription}', {availability}, '{emailSupport}','{phoneSupport}')";
 
             SqlConnection conn = new SqlConnection(connect);
-
-            conn.Open();
-
             SqlCommand command = new SqlCommand(query, conn);
 
-            try
-            {
+            //try
+            //{
+                conn.Open();
                 command.ExecuteNonQuery();
                 //MessageBox.Show("New security level inserted succesfully", "Security Level Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Console.WriteLine("New security level inserted succesfully");
-            }
-            catch (Exception ex)
-            {
-                //MessageBox.Show("Failed to insert new security level: " + ex.Message, "Insert Failed", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
-                Console.WriteLine("Failed to insert new security level");
-            }
-            finally
-            {
-                conn.Close();
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    //MessageBox.Show("Failed to insert new security level: " + ex.Message, "Insert Failed", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+            //    Console.WriteLine("Failed to insert new security level: " + ex.Message);
+            //}
+            //finally
+            //{
+            //    conn.Close();
+            //}
         }
         #endregion
 
