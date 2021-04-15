@@ -11,32 +11,29 @@ namespace TestingDatabaseMethodsCode
         static void Main(string[] args)
         {
             ContractMaintenanceAccess access = new ContractMaintenanceAccess();
-            // Security Levels
-            //1 Security levels: Standard
+            ////Security Levels
+            ////1 Security levels: Standard
             //access.InsertSecuriyLevel("Standard", 1, "MON-FRI-8AM-5PM", "MON-FRI-8AM-5PM");
-            // 2 Security levels: Premium
+            ////2 Security levels: Premium
             //access.InsertSecuriyLevel("Premium", 1, "MON-SAT-5AM-9PM", "MON-SAT-5AM-9PM");
-            // 3 Security levels: Ultra
+            ////3 Security levels: Ultra
             //access.InsertSecuriyLevel("Ultra", 1, "MON-SUN-24HRS", "MON-SUN-24HRS");
 
-            // Service Levels
+            //Service Levels
             //access.InsertServiceLevel("Standard Plan", "50% of Total cost required for opt out", 5, 10, 1, 2);
+            // issue accepting decimals 4.5 
+            //access.InsertServiceLevel("Standard Plus Plan", "50% of Total cost required for opt out", 4, 9, 1, 2);
 
-            //access.InsertServiceLevel("Standard Plus Plan", "50% of Total cost required for opt out", 5, 10, 1, 6);
+            //access.InsertServiceLevel("Premium Plan", "60% of Total cost required for opt out", 4, 8, 1, 3);
 
-            //access.InsertServiceLevel("Premium Plan", "60% of Total cost required for opt out", 5, 10, 1, 6);
-
-            // Services 
+            ////Services
 
             //access.InsertService("Yearly Maintenance", "Heavy Machinery", "Transport and material", 1);
             //access.InsertService("Emergency Maintenance", "Production line equpment", "Transport and material", 1);
 
-            // Packages
-            //access.InsertPackage("Important Heavy machines", 3, 3);
-            //access.InsertPackage("Mid range heavy Machines",3,2);
-            //access.InsertPackage("Important Production Lines", 4, 3);
-            //access.InsertPackage("Office Equipment", 3, 1);
-            //access.InsertPackage("Office Equipment", 4, 1);
+            ////Packages
+            access.InsertPackage(1, "Office Equipment",1, 5);
+            //access.InsertPackage(1, "Office Equipment", 2, 5);
 
             // Contracts
             // CANNOT CREATE THIS WITH JUST IDS as a package might span acroess ids 

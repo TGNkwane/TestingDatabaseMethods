@@ -72,9 +72,9 @@ namespace TestingDatabaseMethodsCode
             }
         }
         // Only the manager can use this method (or anyone with clearance to create packages)
-        public void InsertPackage(string packageName, int serviceID, int serviceLevelID)
+        public void InsertPackage(string packageName, string serviceIDs, string serviceLevelIDs)
         {
-            string query = $"INSERT INTO ContractType VALUES('{packageName}', {serviceID}, {serviceLevelID})";
+            string query = $"INSERT INTO ContractType VALUES('{packageName}', '{serviceIDs}', '{serviceLevelIDs}')";
 
             SqlConnection conn = new SqlConnection(connect);
             SqlCommand command = new SqlCommand(query, conn);
@@ -365,6 +365,67 @@ namespace TestingDatabaseMethodsCode
             {
                 conn.Close();
             }
+        }
+        #endregion
+
+        #region GetData
+        // Get Service
+        public SqlDataReader GetService(int serviceID)
+        {
+            string query = $"SELECT * FROM [Service] WHERE ServiceID = {serviceID}";
+
+            SqlConnection conn = new SqlConnection(connect);
+            SqlCommand command = new SqlCommand(query, conn);
+            SqlDataReader service = null;
+            try
+            {
+                conn.Open();
+                service =  command.ExecuteReader();
+                // MessageBox.Show() overload number 7
+                //MessageBox.Show("New service inserted succesfully", "Service Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Console.WriteLine("Specified Service Found");
+            }
+            catch (Exception ex)
+            {
+                // MessageBox.Show() overload number 7
+                //MessageBox.Show("Failed to insert new Service: " + ex.Message, "Insert Failed", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                Console.WriteLine("Cannot find specified Service");
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return service;
+        }
+
+        public SqlDataReader GetServiceLevel(int serviceLevelID)
+        {
+            string query = $"SELECT * FROM ServiceLevel WHERE ServiceLevelID = {serviceLevelID}";
+
+            SqlConnection conn = new SqlConnection(connect);
+            SqlCommand command = new SqlCommand(query, conn);
+            SqlDataReader service = null;
+            try
+            {
+                conn.Open();
+                service = command.ExecuteReader();
+                // MessageBox.Show() overload number 7
+                //MessageBox.Show("New service inserted succesfully", "Service Status", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Console.WriteLine("Specified Service Level Found");
+            }
+            catch (Exception ex)
+            {
+                // MessageBox.Show() overload number 7
+                //MessageBox.Show("Failed to insert new Service: " + ex.Message, "Insert Failed", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                Console.WriteLine("Cannot find specified Service Level");
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return service;
         }
         #endregion
     }
