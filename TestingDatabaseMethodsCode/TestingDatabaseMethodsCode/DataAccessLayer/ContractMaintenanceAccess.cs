@@ -15,7 +15,7 @@ namespace TestingDatabaseMethodsCode
 
         #region Insert Functions
         // Insert functions: These functions are used to add services, service levels (including security levels),
-        // add packages add contract(aka create a contract)
+        // add packages, add contract(aka create a contract)
 
         // Only the manager can use this method (or anyone with clearance to create services)
         public void InsertService(string name, string equipmentType, string workExpenses, int state)
@@ -101,12 +101,10 @@ namespace TestingDatabaseMethodsCode
         // most likely to be used by the call senter personeel, as they deal with clients and create these contracts (sell the services)
         public void InsertContract(int contractTypeID, int clientID)
         {
-            string query = $"INSERT INTO Contract VALUES({contractTypeID}, {clientID})";
+            string query = $"INSERT INTO [Contract] VALUES({contractTypeID},{clientID})";
 
             SqlConnection conn = new SqlConnection(connect);
             SqlCommand command = new SqlCommand(query, conn);
-            
-
             try
             {
                 conn.Open();
@@ -127,7 +125,7 @@ namespace TestingDatabaseMethodsCode
         // The manager can use this method (or anyone with clearance to create security levels)
         public void InsertSecuriyLevel(string levelDescription, int availability, string emailSupport, string phoneSupport)
         {
-            string query = $"INSERT INTO dbo.SecurityLevel VALUES('{levelDescription}', {availability}, '{emailSupport}','{phoneSupport}')";
+            string query = $"INSERT INTO SecurityLevel VALUES('{levelDescription}', {availability}, '{emailSupport}','{phoneSupport}')";
 
             SqlConnection conn = new SqlConnection(connect);
             SqlCommand command = new SqlCommand(query, conn);
@@ -204,9 +202,9 @@ namespace TestingDatabaseMethodsCode
             }
         }
         // Only the manager can use this method (or anyone with clearance to update packages data)
-        public void UpdatePackage(int contractTypeID, string packageName, int serviceID, int serviceLevelID)
+        public void UpdatePackage(int contractTypeID, string packageName, string services, string serviceLevels)
         {
-            string query = $"UPDATE ContractType SET PackageName = '{packageName}', ServiceID = {serviceID}, ServiceLevelID= {serviceLevelID} WHERE ContractTypeID = {contractTypeID}";
+            string query = $"UPDATE ContractType SET PackageName = '{packageName}', Services = {services}, ServiceLevels= {serviceLevels} WHERE ContractTypeID = {contractTypeID}";
 
             SqlConnection conn = new SqlConnection(connect);
             SqlCommand command = new SqlCommand(query, conn);
@@ -259,7 +257,7 @@ namespace TestingDatabaseMethodsCode
         // The manager can use this method (or anyone with clearance to update security levels data)
         public void UpdateSecurityLevel(int securityLevelID, string levelDescription, string emailSupport, string phoneSupport)
         {
-            string query = $"UPDATE SecurityLevel SET LevelDescription= {levelDescription}, EmailSupport = {emailSupport}, PhoneSupport = {phoneSupport} WHERE SecurityLevelID = {securityLevelID}";
+            string query = $"UPDATE SecurityLevel SET LevelDescription= '{levelDescription}', EmailSupport = '{emailSupport}', PhoneSupport = '{phoneSupport}' WHERE SecurityLevelID = {securityLevelID}";
 
             SqlConnection conn = new SqlConnection(connect);
             SqlCommand command = new SqlCommand(query, conn);
