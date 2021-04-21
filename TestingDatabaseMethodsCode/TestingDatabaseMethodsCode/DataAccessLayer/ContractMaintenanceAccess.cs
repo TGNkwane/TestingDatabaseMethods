@@ -179,7 +179,7 @@ namespace TestingDatabaseMethodsCode
         // Only the manager can use this method (or anyone with clearance to update service levels data)
         public void UpdateServiceLevel(int serviceLevelID, string levelName, string optOutDetails, double penaltiesForLateWork, double penaltiesForNonPerformance)
         {
-            string query = $"UPDATE ServiceLevel SET Name = '{levelName}', OptOutDetails = '{optOutDetails}', PenaltiesForLateWork = {penaltiesForLateWork}, PenaltiesForNOnPerformance= {penaltiesForNonPerformance} WHERE ServiceLevelID = {serviceLevelID}";
+            string query = $"UPDATE ServiceLevel SET LevelName = '{levelName}', OptOutDetails = '{optOutDetails}', PenaltiesForLateWork = {penaltiesForLateWork}, PenaltiesForNOnPerformance = {penaltiesForNonPerformance} WHERE ServiceLevelID = {serviceLevelID}";
 
             SqlConnection conn = new SqlConnection(connect);
             SqlCommand command = new SqlCommand(query, conn);
@@ -204,7 +204,8 @@ namespace TestingDatabaseMethodsCode
         // Only the manager can use this method (or anyone with clearance to update packages data)
         public void UpdatePackage(int contractTypeID, string packageName, string services, string serviceLevels)
         {
-            string query = $"UPDATE ContractType SET PackageName = '{packageName}', Services = {services}, ServiceLevels= {serviceLevels} WHERE ContractTypeID = {contractTypeID}";
+            // Ensure that database has been changed to these names
+            string query = $"UPDATE ContractType SET PackageName = '{packageName}', Services = '{services}', ServiceLevels = '{serviceLevels}' WHERE ContractTypeID = {contractTypeID}";
 
             SqlConnection conn = new SqlConnection(connect);
             SqlCommand command = new SqlCommand(query, conn);
@@ -219,7 +220,7 @@ namespace TestingDatabaseMethodsCode
             catch (Exception ex)
             {
                 //MessageBox.Show("Failed to update Package: " + ex.Message, "Update Failed", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
-                Console.WriteLine("Failed to update Package");
+                Console.WriteLine("Failed to update Package" + ex.Message);
             }
             finally
             {
@@ -317,6 +318,7 @@ namespace TestingDatabaseMethodsCode
         // Only the manager can use this method (or anyone with clearance to update service levels)
         public void UpdateServiceLevel(int serviceLevelID, int state)
         {
+            
             string query = $"UPDATE ServiceLevel SET State = {state} WHERE ServiceLevelID = {serviceLevelID}";
 
             SqlConnection conn = new SqlConnection(connect);
@@ -367,6 +369,7 @@ namespace TestingDatabaseMethodsCode
         #endregion
 
         #region GetData
+        // Rather return a list or a single Serive object or any paricular object rather than a DataReader !!!!!
         // Get Service
         public SqlDataReader GetService(int serviceID)
         {

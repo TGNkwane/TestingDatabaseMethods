@@ -38,8 +38,25 @@ namespace TestingDatabaseMethodsCode
             // Contracts
             // CANNOT CREATE THIS WITH JUST IDS as a package might span acroess ids 
             // object relational impedance mismatch -- a list of services vs a table 
-            access.InsertContract(1,2);
-            access.InsertContract(2,1);
+            //access.InsertContract(1,2);
+            //access.InsertContract(2,1);
+
+            //access.UpdateSecurityLevel(1, "New Description", "All time", "All time");
+            //access.UpdateContract(12, 2, 2);
+            //access.UpdatePackage(1, "New package Name", "1,2,3", "3,2,1");
+
+            //access.UpdateService(1, "N1", "Eq", "Niks");
+            //access.UpdateService(2, "N2", "Huge Eq", "Nada Niks");
+            //access.UpdateServiceLevel(2, "SP", "50%", 6, 10);
+
+            // Overloads
+            //access.UpdateSecurityLevel(1,0);
+            //access.UpdateContract(12, 2, 2); does not have state ... must have state 
+            //access.UpdatePackage(1, "New package Name", "1,2,3", "3,2,1"); // state controlled by service states
+            //access.UpdateService(1, 0);
+            //access.UpdateServiceLevel(1,0);
+
+            Console.WriteLine(access.GetService(1).GetString(1));
 
             Console.ReadLine();
             
